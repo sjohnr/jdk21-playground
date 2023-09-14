@@ -12,7 +12,7 @@ jobs:
       - name: Set up Gradle
         uses: spring-io/spring-gradle-build-action@v2
         with:
-          java-version: '21'
-          distribution: 'openjdk'
+          java-version: '21-ea'
+          distribution: 'temurin'
       - name: Build with Gradle
         run: ./gradlew clean build --continue --scan -PtestToolchain=21
