@@ -13,6 +13,6 @@ jobs:
         uses: spring-io/spring-gradle-build-action@v2
         with:
           java-version: '17'
-          java-distribution: 'temurin'
+          distribution: 'temurin'
       - name: Build with Gradle
-        run: ./gradlew clean build --continue --scan
+        run: ./gradlew clean build --continue --scan -PtestToolchain=21
