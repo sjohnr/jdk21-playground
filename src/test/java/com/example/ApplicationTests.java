@@ -18,9 +18,11 @@ class ApplicationTests {
 
 	@Test
 	@DisabledOnJre(JRE.JAVA_17)
-	void virtualThreadsAreAvailable() {
+	void virtualThreadsAreAvailable() throws Exception {
 		ThreadFactory threadFactory = new VirtualThreadTaskExecutor().getVirtualThreadFactory();
-		threadFactory.newThread(() -> System.out.println("Hi, I'm on a virtual thread! " + Thread.currentThread().getName()));
+		Thread thread = threadFactory.newThread(() -> System.out.println("Hi, I'm on a virtual thread! " + Thread.currentThread().getName()));
+		thread.start();
+		thread.join();
 	}
 
 }
