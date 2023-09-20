@@ -8,10 +8,6 @@ plugins {
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
-//java {
-//	sourceCompatibility = '21'
-//}
-
 repositories {
 	mavenCentral()
 	maven { url 'https://repo.spring.io/milestone' }
@@ -32,7 +28,7 @@ def toolchainVersion() {
 	if (project.hasProperty('testToolchain')) {
 		return project.property('testToolchain').toString().toInteger()
 	}
-	return 17;
+	return 17
 }
 
 java {
